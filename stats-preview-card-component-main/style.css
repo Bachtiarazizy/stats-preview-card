@@ -1,0 +1,163 @@
+/* Base styles (already provided) */
+:root {
+  --Very-dark-blue: hsl(233, 47%, 7%);
+  --Dark-desaturated-blue: hsl(244, 38%, 16%);
+  --Soft-violet: hsl(277, 64%, 61%);
+
+  --White: hsl(0, 0%, 100%);
+  --Slightly-trans-white: hsla(0, 0%, 100%, 0.75);
+  --Slightly-trans-white-heading: hsla(0, 0%, 100%, 0.6);
+
+  --Font-family1: "Lexend Deca", sans-serif;
+  --Font-family2: "Inter", sans-serif;
+  --Font-size: 15px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  background-color: var(--Very-dark-blue);
+  font-family: var(--Font-family2);
+  font-size: var(--Font-size);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.card {
+  background-color: var(--Dark-desaturated-blue);
+  color: var(--White);
+  display: flex;
+  flex-direction: row;
+  max-width: 100vw; /* Ensure card fits within viewport width */
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: add shadow for better visibility */
+}
+
+.card__image {
+  flex: 1; /* Allow image section to flexibly adjust */
+  max-width: 100%;
+  height: auto; /* Maintain aspect ratio */
+}
+
+.card__content {
+  flex: 1; /* Allow content section to flexibly adjust */
+  padding: 4vw; /* Use viewport width for responsive padding */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: start;
+}
+
+.card__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 2rem; /* Use rem units for better scaling */
+}
+
+.card__title span {
+  color: var(--Soft-violet);
+}
+
+.card__text {
+  color: var(--Slightly-trans-white);
+  line-height: 1.5;
+  margin-bottom: 2rem; /* Use rem units for better scaling */
+  font-family: var(--Font-family1);
+}
+
+.card__stats {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem; /* Adjust gap to fit within smaller screens */
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: start;
+}
+
+.stat__number {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.stat__text {
+  color: var(--Slightly-trans-white-heading);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .card {
+    flex-direction: column-reverse;
+    max-width: 90vw; /* Ensure card fits within viewport width */
+  }
+
+  .card__image,
+  .card__content {
+    width: 100%;
+  }
+
+  .card__content {
+    text-align: center;
+    margin-top: 1rem;
+    padding: 2rem; /* Adjust padding for smaller screens */
+  }
+
+  .card__title {
+    font-size: 2rem;
+  }
+
+  .card__text {
+    margin-bottom: 1.5rem;
+  }
+
+  .card__stats {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .stat__number {
+    font-size: 1.5rem;
+  }
+
+  .stat__text {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .card__title {
+    font-size: 1.5rem;
+  }
+
+  .card__text {
+    margin-bottom: 1rem;
+  }
+
+  .stat__number {
+    text-align: center;
+    font-size: 1.25rem;
+  }
+
+  .stat__text {
+    font-size: 1rem;
+  }
+}
